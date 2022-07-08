@@ -1,0 +1,28 @@
+1. virtual env
+ -> pip install virtualenv
+ -> virtualenv my-todoapp-env
+ -> cd my-todoapp-env
+
+2. activate virtual
+ -> source Scripts/activate 
+ -> pip install django
+ -> pip freeze 
+
+3. create app
+ -> django-admin startproject todoproject
+ -> cd todoapp
+ -> python manage.py startapp todoapp
+ -> code .
+
+4. local server
+ -> python manage.py runserver
+ -> check google
+
+5. settings.py
+ -> installedapps = ["todoapp"]
+ -> language="ja", timezone ="Asia/Tokyo"
+ -> create templates folder
+
+6. start dev app
+ -> project -> urls.py
+ -> views.py 
