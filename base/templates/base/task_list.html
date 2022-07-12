@@ -1,9 +1,10 @@
-{% if request.user.is_authenticated %}
-<p>{{request.user}}</p>
-<a href="{% url 'logout' %}">ログアウト</a>
-{% else %}
-<a href="{% url 'login' %}">ログイン</a>
-{% endif %}
+{% extends 'base/main.html' %}{% block content %}
+
+<div class="header-bar">
+    <h1>Hello {{request.user}}</h1>
+    <h3 style="margin: 0">You have <i>{{count}}</i> incomplete tasks</h3>
+</div>
+
 <hr />
 <!-- 最初はこっち -->
 <h1>Todoリスト</h1>
@@ -22,7 +23,7 @@
   {% for task in tasks %}
   <tr>
     <td>{{task.title}}</td>
-    <td><a href="{% url 'task' task.id %}">確認</a></td>
+    <!-- <td><a href="{% url 'task' task.id %}">確認</a></td> -->
     <td><a href="{% url 'edit-task' task.id %}">編集</a></td>
     <td><a href="{% url 'delete-task' task.id %}">削除</a></td>
   </tr>
@@ -30,3 +31,12 @@
   <h3>No items in list</h3>
   {% endfor %}
 </table>
+<div class="loginAndLogout">
+  {% if user.is_authenticated %}
+  <a href="{% url 'logout' %}">ログアウト</a>
+  {% else %}
+  <a href="{% url 'login' %}">ログイン</a>
+  {% endif %}
+</div>
+</div>
+{% endblock content %}

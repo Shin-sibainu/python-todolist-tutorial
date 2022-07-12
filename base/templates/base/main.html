@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todoアプリ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        /* background-color: aqua; */
+        background-color: #fafafa;
+        font-family: "M PLUS Rounded 1c", sans-serif;
+        padding-top: 50px;
+      }
+
+      .container {
+        max-width: 550px;
+        margin: 0 auto;
+        background-color: #fff;
+        box-shadow: 0px 6px 15px -5px #777777;
+        border-radius: 10px;
+      }
+
+      a,
+      p {
+        color: #e0e5e5;
+      }
+
+      h1 {
+        margin: 0;
+      }
+
+      .header-bar {
+        text-align: center;
+        padding: 20px 0;
+        background: rgb(41, 85, 168);
+        background: linear-gradient(
+          126deg,
+          rgba(41, 85, 168, 0.9416141456582633) 39%,
+          rgba(60, 100, 147, 1) 100%
+        );
+        color: white;
+        border-radius: 5px 5px 0 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">{% block content %} {% endblock content %}</div>
+  </body>
+</html>
