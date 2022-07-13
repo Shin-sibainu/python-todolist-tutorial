@@ -1,36 +1,61 @@
 {% extends 'base/main.html' %}{% block content %}
 
 <div class="header-bar">
-    <h1>Hello {{request.user}}</h1>
-    <h3 style="margin: 0">You have <i>{{count}}</i> incomplete tasks</h3>
+    <h1>{{request.user}}のタスク</h1>
+    <!-- <h3 style="margin: 0">You have <i>{{count}}</i> incomplete tasks</h3> -->
 </div>
 
-<hr />
-<!-- 最初はこっち -->
-<h1>Todoリスト</h1>
+<!-- <hr />
+<h1>Todoリスト</h1> -->
 <!-- <h1>{{color}}</h1> -->
-<a href="{% url 'create-task' %}">タスクの追加</a>
-
+<!-- <a href="{% url 'create-task' %}">タスクの追加</a>
 <form method="GET">
   <input type="text" name="search-area" value="{{search_input}}" />
   <input type="submit" value="検索" />
-</form>
+</form> -->
 
-<table>
+<div class="tasksWrapper">
+  {% for task in tasks %}
+    <div class="taskWrapper">
+      <!-- 完了してるなら斜線 -->
+      {% if task.completed %}
+        <div class="taskTitle">
+          <div class="taskCompletedIcon">
+          </div>
+          <i><s><a href="{% url 'task' task.id %}">{{task}}</a></s></i>
+        </div> 
+        <a href="{% url 'delete-task' task.id %}" class="deleteLink">&#215;</a>
+        <!-- 未完了ならそのまま -->
+        {% else %}
+        <div class="taskTitle">
+          <div class="taskInCompletedIcon">
+          </div>
+          <a href="{% url 'task' task.id %}">{{task}}</a>
+        </div>
+        <a href="{% url 'delete-task' task.id %}" class="deleteLink">&#215;</a>
+        {% endif %}
+    </div>
+
+  {% empty %}
+  <h3>No items in list</h3>
+  {% endfor %}
+</div>
+
+<!-- <table>
   <tr>
     <th>Item</th>
   </tr>
   {% for task in tasks %}
   <tr>
     <td>{{task.title}}</td>
-    <!-- <td><a href="{% url 'task' task.id %}">確認</a></td> -->
+    <td><a href="{% url 'task' task.id %}">確認</a></td>
     <td><a href="{% url 'edit-task' task.id %}">編集</a></td>
     <td><a href="{% url 'delete-task' task.id %}">削除</a></td>
   </tr>
   {% empty %}
   <h3>No items in list</h3>
   {% endfor %}
-</table>
+</table> -->
 <div class="loginAndLogout">
   {% if user.is_authenticated %}
   <a href="{% url 'logout' %}">ログアウト</a>
