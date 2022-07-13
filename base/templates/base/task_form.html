@@ -1,8 +1,14 @@
 {% extends 'base/main.html' %}{% block content %}
-<h3>Task Form</h3>
-<a href="{% url 'tasks' %}">戻る</a>
-<form action="" method="POST">
-  {% csrf_token %} {{form.as_p}}
-  <input type="submit" value="追加" />
-</form>
+
+<div class="header-bar">
+  <a href="{% url 'tasks' %}" class="backButton"><<戻る</a>
+</div>
+
+<div class="addWrapper" style="padding: 20px">
+  <form action="" method="POST">
+    {% csrf_token %} {{form.as_p}}
+    <input type="submit" value="追加" class="searchButton" />
+  </form>
+</div>
+
 {% endblock content %}

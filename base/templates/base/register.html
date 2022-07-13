@@ -2,12 +2,14 @@
 <h1>新規登録</h1>
 
 <form action="" method="POST">
-  {% csrf_token %} {{form.as_p}}
-  <input
-    type="submit"
-    value="新規登録
-  "
-  />
+  {% csrf_token %}
+  <label>ユーザー名</label>
+  {{form.username}}
+  <label>パスワード</label>
+  {{form.password1}}
+  <label>パスワード確認</label>
+  {{form.password2}}
+  <input type="submit" value="新規登録" />
 </form>
 
 <p>すでにアカウントを持っていますか？</p>

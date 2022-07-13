@@ -75,3 +75,60 @@ h1 {
   color: lightcoral;
   text-decoration: none;
 }
+
+.searchWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.searchInput {
+  height: 24px;
+  outline: none;
+  border: 1px solid lightseagreen;
+  border-radius: 5px;
+  padding: 2px 4px;
+  width: 160px !important;
+}
+
+.addButton {
+  color: lightseagreen;
+  font-size: 32px;
+}
+
+.searchButton {
+  border: 1px solid lightseagreen;
+  background-color: #fafafa;
+  color: lightseagreen;
+  padding: 4px 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.4s;
+}
+
+.searchButton:hover {
+  background-color: lightseagreen;
+  color: white;
+}
+
+.backButton {
+  color: white;
+}
+
+.editButton {
+  color: #4eb65a;
+}
+
+label {
+  padding-top: 10px !important;
+  display: block;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+  width: 100%;
+}

@@ -5,14 +5,17 @@
     <!-- <h3 style="margin: 0">You have <i>{{count}}</i> incomplete tasks</h3> -->
 </div>
 
-<!-- <hr />
-<h1>Todoリスト</h1> -->
-<!-- <h1>{{color}}</h1> -->
-<!-- <a href="{% url 'create-task' %}">タスクの追加</a>
-<form method="GET">
-  <input type="text" name="search-area" value="{{search_input}}" />
-  <input type="submit" value="検索" />
-</form> -->
+
+<div class="searchWrapper">
+  <form method="GET">
+    <input type="text" name="search-area" value="{{search_input}}" class="searchInput"/>
+    <input type="submit" value="検索" class="searchButton"/>
+  </form>
+  <a href="{% url 'create-task' %}" class="addButton">＋</a>
+</div>
+
+
+
 
 <div class="tasksWrapper">
   {% for task in tasks %}
@@ -24,7 +27,10 @@
           </div>
           <i><s><a href="{% url 'task' task.id %}">{{task}}</a></s></i>
         </div> 
-        <a href="{% url 'delete-task' task.id %}" class="deleteLink">&#215;</a>
+        <div>
+          <a href="{% url 'edit-task' task.id %}" class="editButton">&#x270f;</a>
+          <a href="{% url 'delete-task' task.id %}" class="deleteLink">&#215;</a>
+        </div>
         <!-- 未完了ならそのまま -->
         {% else %}
         <div class="taskTitle">
@@ -32,7 +38,10 @@
           </div>
           <a href="{% url 'task' task.id %}">{{task}}</a>
         </div>
+        <div>
+        <a href="{% url 'edit-task' task.id %}" class="editButton">&#x270f;</a>
         <a href="{% url 'delete-task' task.id %}" class="deleteLink">&#215;</a>
+      </div>
         {% endif %}
     </div>
 
